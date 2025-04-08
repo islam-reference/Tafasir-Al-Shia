@@ -1,6 +1,6 @@
 <div dir="rtl">
 <p align="center">
-  <img src="assets/banner.png" alt="تطبيق تفاسير الشيعة">
+  <img src="assets/banner.png" alt="تطبيق تفاسير الشيعة"> 
 </p>
 
 <h1 dir="rtl" style="color:#f39c12; font-size:2.5em;"> 🌟📘 تطبيق تفاسير الشيعة 🌟</h1>
