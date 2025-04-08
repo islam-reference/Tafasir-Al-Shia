@@ -31,7 +31,7 @@ This software is the copyrighted work of islam-reference and is provided free of
 
 
 
-Copyright © 2025 islam-reference. All rights reserved.
+Copyright © 2025 islam-reference. All rights reserved. 📧 [TafasirAlshia@proton.me] 
 
 ────────────────────────────────────────────
 
@@ -59,6 +59,8 @@ Copyright © 2025 islam-reference. All rights reserved.
    - يُلغى هذا الترخيص تلقائيًا في حال مخالفة أي من الشروط المذكورة أعلاه.
 
 للاستفسارات أو طلبات الإذن، يرجى التواصل عبر:
+
+📧 [TafasirAlshia@proton.me] 
 
 
 جميع الحقوق محفوظة © ٢٠٢٥ islam-reference.
