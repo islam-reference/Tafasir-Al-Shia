@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>تفاسير الشيعة — Tafasir Al Shia</title>
+  <meta name="description" content="تطبيق شامل لعرض مجموعة من تفاسير القرآن الكريم المعتمدة على روايات أهل البيت عليهم السلام، مع إمكانية استعراض أكثر من تفسير للآية الواحدة ومقارنتها بسهولة.">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #1f2328;
+      --muted: #59636e;
+      --border: #d1d9e0;
+      --border-muted: #d1d9e0b3;
+      --link: #0969da;
+      --code-bg: #818b981f;
+      --pre-bg: #f6f8fa;
+      --row-alt: #f6f8fa;
+      --btn-bg: #f6f8fa;
+      --btn-hover: #eff2f5;
+      --success: #1a7f37;
+      --title: #f39c12;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", "Noto Sans Arabic", Tahoma, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0d1117;
+        --fg: #f0f6fc;
+        --muted: #9198a1;
+        --border: #3d444d;
+        --border-muted: #3d444db3;
+        --link: #4493f8;
+        --code-bg: #656c7633;
+        --pre-bg: #151b23;
+        --row-alt: #151b23;
+        --btn-bg: #212830;
+        --btn-hover: #262c36;
+        --success: #3fb950;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-wrap: break-word;
+    }
+
+    .markdown-body {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 45px;
+    }
+
+    .markdown-body > :first-child { margin-top: 0; }
+    .markdown-body > :last-child { margin-bottom: 0; }
+
+    /* Headings */
+    h1, h2, h3 {
+      margin: 24px 0 16px;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    h1, h2 {
+      padding-bottom: .3em;
+      border-bottom: 1px solid var(--border-muted);
+    }
+
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.5em; }
+    h3 { font-size: 1.25em; }
+
+    h1.app-title {
+      color: var(--title);
+      font-size: 2.5em;
+    }
+
+    /* Text */
+    p, ul, ol, table, pre { margin-top: 0; margin-bottom: 16px; }
+
+    strong { font-weight: 600; }
+
+    a {
+      color: var(--link);
+      text-decoration: underline;
+      text-underline-offset: .2rem;
+    }
+
+    a:hover { text-decoration-thickness: 2px; }
+
+    .banner { text-align: center; }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-style: none;
+    }
+
+    hr {
+      height: .25em;
+      margin: 24px 0;
+      padding: 0;
+      background-color: var(--border);
+      border: 0;
+      overflow: hidden;
+    }
+
+    /* Lists */
+    ul, ol { padding-inline-start: 2em; }
+    li + li { margin-top: .25em; }
+
+    /* Tables */
+    table {
+      display: block;
+      width: max-content;
+      max-width: 100%;
+      overflow: auto;
+      border-spacing: 0;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 6px 13px;
+      border: 1px solid var(--border);
+      text-align: start;
+    }
+
+    th { font-weight: 600; }
+
+    tr {
+      background-color: var(--bg);
+      border-top: 1px solid var(--border-muted);
+    }
+
+    tbody tr:nth-child(2n) { background-color: var(--row-alt); }
+
+    /* Code (kept left-to-right inside the RTL page) */
+    code, pre { font-family: var(--mono); }
+
+    code {
+      padding: .2em .4em;
+      margin: 0;
+      font-size: 85%;
+      white-space: break-spaces;
+      background-color: var(--code-bg);
+      border-radius: 6px;
+      direction: ltr;
+      unicode-bidi: isolate;
+    }
+
+    pre {
+      padding: 16px;
+      overflow: auto;
+      font-size: 85%;
+      line-height: 1.45;
+      background-color: var(--pre-bg);
+      border-radius: 6px;
+      direction: ltr;
+      text-align: left;
+    }
+
+    pre code {
+      padding: 0;
+      font-size: 100%;
+      white-space: pre;
+      background: transparent;
+      border-radius: 0;
+    }
+
+    .code-block {
+      position: relative;
+      margin-bottom: 16px;
+    }
+
+    .code-block pre { margin-bottom: 0; }
+
+    .copy-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      padding: 0;
+      color: var(--muted);
+      background: var(--btn-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity .15s, background-color .15s;
+    }
+
+    .code-block:hover .copy-btn,
+    .copy-btn:focus-visible,
+    .copy-btn.copied { opacity: 1; }
+
+    .copy-btn:hover { background: var(--btn-hover); color: var(--fg); }
+    .copy-btn.copied { color: var(--success); }
+
+    @media (hover: none) {
+      .copy-btn { opacity: 1; }
+    }
+
+    @media (max-width: 767px) {
+      .markdown-body { padding: 16px; }
+      h1.app-title { font-size: 2em; }
+    }
+
+    @media print {
+      .copy-btn { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="markdown-body">
+
+    <p class="banner">
+      <img src="banner.png" alt="تطبيق تفاسير الشيعة">
+    </p>
+
+    <h1 class="app-title">🌟📘 تطبيق تفاسير الشيعة 🌟</h1>
+
+    <h1>🕌 تفاسير الشيعة — Tafasir Al Shia</h1>
+
+    <p>تطبيق <strong>"تفاسير الشيعة"</strong> هو تطبيق شامل لعرض مجموعة من تفاسير القرآن الكريم المعتمدة على روايات <strong>أهل البيت عليهم السلام</strong>، مع إمكانية استعراض أكثر من تفسير للآية الواحدة ومقارنتها بسهولة.</p>
+
+    <p>تمت إعادة بناء التطبيق في <strong>الإصدار 2</strong> باستخدام <strong>Tauri 2</strong> مع تحسينات كبيرة في الأداء، استهلاك الذاكرة، إدارة البيانات، البحث، المحفوظات، ودعم أنظمة تشغيل متعددة.</p>
+
+    <p>يعمل التطبيق بالكامل محليًا بعد تحميله، ولا يحتاج إلى اتصال بالإنترنت لعرض القرآن أو التفاسير.</p>
+
+    <hr>
+
+    <h2 id="version-2">🚀 الإصدار 2</h2>
+
+    <p>أُعيد تصميم التطبيق وبنيته الداخلية بشكل كبير في الإصدار الثاني، ومن أبرز التحسينات:</p>
+
+    <ul>
+      <li>تقليل استهلاك الذاكرة وتحسين سرعة بدء التطبيق والتنقل بين السور.</li>
+      <li>إعادة بناء التطبيق باستخدام <strong>Tauri 2</strong>.</li>
+      <li>دعم Windows وmacOS وLinux.</li>
+      <li>إضافة نظام <strong>المحفوظات / العلامات المرجعية</strong>.</li>
+      <li>حفظ المحفوظات محليًا على الجهاز.</li>
+      <li>إمكانية <strong>تصدير واستيراد المحفوظات</strong>.</li>
+      <li>تحسين البحث في السور والآيات.</li>
+      <li>تحسين التنقل بين السور والآيات.</li>
+      <li>تحسين معالجة الأخطاء وحالات عدم توفر البيانات أو التفسير.</li>
+      <li>إعادة تنظيم الكود وبنية التطبيق لتسهيل التطوير والصيانة مستقبلًا.</li>
+      <li>الاحتفاظ بواجهة خفيفة مبنية باستخدام HTML وCSS وJavaScript بدون إطار JavaScript ثقيل.</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="download">⬇️ التحميل (Download)</h2>
+
+    <p>لتحميل أحدث إصدار:</p>
+
+    <ol>
+      <li>اذهب إلى قسم <strong><a href="https://github.com/islam-reference/Tafasir-Al-Shia/releases">Releases</a></strong> في هذا المستودع.</li>
+      <li>اختر أحدث إصدار.</li>
+      <li>حمّل الملف المناسب لنظام التشغيل لديك:</li>
+    </ol>
+
+    <table>
+      <thead>
+        <tr><th>النظام</th><th>الملف</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>🪟 Windows</td><td><code>Tafasir-Al-Shia-Windows.exe</code></td></tr>
+        <tr><td>🍎 macOS</td><td><code>Tafasir-Al-Shia-macOS-Universal.zip</code></td></tr>
+        <tr><td>🐧 Linux</td><td><code>Tafasir-Al-Shia-Linux.AppImage</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Windows</h3>
+
+    <p>حمّل:</p>
+    <p><code>Tafasir-Al-Shia-Windows.exe</code></p>
+    <p>ثم شغّله مباشرة.</p>
+    <p><strong>لا يحتاج إلى تثبيت.</strong></p>
+
+    <h3>macOS</h3>
+
+    <p>حمّل:</p>
+    <p><code>Tafasir-Al-Shia-macOS-Universal.zip</code></p>
+    <p>ثم فك الضغط وشغّل تطبيق <code>.app</code>.</p>
+    <p>نسخة macOS هي <strong>Universal</strong> وتدعم:</p>
+    <ul>
+      <li>Apple Silicon</li>
+      <li>Intel Macs</li>
+    </ul>
+
+    <h3>Linux</h3>
+
+    <p>حمّل:</p>
+    <p><code>Tafasir-Al-Shia-Linux.AppImage</code></p>
+    <p>ثم امنحه صلاحية التشغيل إذا لزم الأمر:</p>
+    <div class="code-block">
+      <pre><code>chmod +x Tafasir-Al-Shia-Linux.AppImage</code></pre>
+    </div>
+    <p>ثم شغّله مباشرة.</p>
+
+    <hr>
+
+    <h2 id="warnings">⚠️ ملاحظة حول تحذيرات النظام</h2>
+
+    <p>قد يظهر تحذير أمني عند تشغيل التطبيق للمرة الأولى، خصوصًا على Windows أو macOS.</p>
+    <p>هذا لا يعني أن التطبيق يحتوي على برمجيات ضارة.</p>
+    <p>سبب التحذير هو أن نسخ التطبيق المنشورة حاليًا لا تستخدم شهادة تجارية لتوقيع البرامج أو خدمة Apple Notarization.</p>
+    <p>يمكن للمستخدم السماح بتشغيل التطبيق يدويًا من إعدادات نظام التشغيل.</p>
+
+    <hr>
+
+    <h2 id="tafasir">📚 التفاسير المتوفرة</h2>
+
+    <ul>
+      <li><strong>تفسير العياشي</strong> – لمحمد بن مسعود العياشي</li>
+      <li><strong>تفسير الإمام العسكري</strong> – منسوب للإمام الحسن بن علي العسكري (عليه السلام)</li>
+      <li><strong>البرهان في تفسير القرآن</strong> – للسيد هاشم البحراني</li>
+      <li><strong>كنز العمال في سنن الأقوال والأفعال</strong> – للمتقي الهندي</li>
+      <li><strong>تفسير فرات الكوفي</strong> – لفرات بن إبراهيم الكوفي</li>
+      <li><strong>تفسير القمي</strong> – لعلي بن إبراهيم القمي</li>
+      <li><strong>تفسير الصافي</strong> – للفيض الكاشاني</li>
+      <li><strong>تيسير المطالب</strong> – في تفسير الآيات المرتبطة بمناقب أهل البيت</li>
+      <li><strong>تأويل الآيات الظاهرة</strong> – لشرف الدين النجفي</li>
+      <li><strong>تفسير نور الثقلين</strong> – لعبد علي بن جمعة العروسي الحويزي</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="features">✨ المميزات</h2>
+
+    <h3>📖 تصفح القرآن</h3>
+    <p>استعراض السور والآيات بسهولة مع إمكانية الانتقال السريع بين الآيات والسور.</p>
+
+    <h3>📚 عرض عدة تفاسير</h3>
+    <p>يمكن عرض تفسير واحد أو عدة تفاسير للآية نفسها في الوقت ذاته، مما يسهّل المقارنة بين المصادر المختلفة.</p>
+
+    <h3>🔎 البحث</h3>
+    <p>البحث في أسماء السور ونصوص الآيات مع معالجة أفضل للنص العربي لتسهيل الوصول إلى النتائج المطلوبة.</p>
+
+    <h3>🔖 المحفوظات</h3>
+    <p>إضافة الآيات إلى قائمة المحفوظات والعودة إليها لاحقًا.</p>
+    <p>يتم حفظ المحفوظات محليًا على الجهاز حتى بعد إغلاق التطبيق وإعادة تشغيله.</p>
+
+    <h3>📤 استيراد وتصدير المحفوظات</h3>
+    <p>يمكن تصدير المحفوظات إلى ملف والاحتفاظ بها كنسخة احتياطية، ثم استيرادها مرة أخرى عند الحاجة.</p>
+
+    <h3>🌓 الوضع الليلي والنهاري</h3>
+    <p>إمكانية التبديل بين المظهر الفاتح والداكن لراحة العين أثناء القراءة.</p>
+
+    <h3>✍️ تخصيص الخط</h3>
+    <p>يوفر التطبيق خيارات متعددة لتخصيص طريقة عرض النص، ومنها:</p>
+    <ul>
+      <li>نوع الخط</li>
+      <li>حجم الخط</li>
+      <li>سماكة الخط</li>
+      <li>ميل الخط</li>
+      <li>تباعد الحروف</li>
+      <li>تباعد الكلمات</li>
+    </ul>
+
+    <h3>⬆️ العودة السريعة إلى أعلى الصفحة</h3>
+    <p>زر مخصص للعودة إلى بداية الصفحة عند قراءة التفاسير الطويلة.</p>
+
+    <h3>⚡ تحميل أخف وأسرع</h3>
+
+    <h3>🌐 يعمل بدون إنترنت</h3>
+    <p>بيانات القرآن والتفاسير مضمنة مع التطبيق، لذلك يمكن استخدامه بدون اتصال بالإنترنت.</p>
+
+    <h3>💻 متعدد المنصات</h3>
+    <p>يدعم الإصدار 2:</p>
+    <ul>
+      <li>Windows</li>
+      <li>macOS</li>
+      <li>Linux</li>
+    </ul>
+    <p>كما تم بناء التطبيق باستخدام <strong>Tauri 2</strong> لتسهيل دعم منصات إضافية مستقبلًا.</p>
+
+    <h3>📦 تشغيل مباشر</h3>
+    <p>نسخ سطح المكتب مصممة بحيث يمكن تشغيلها مباشرة دون الحاجة إلى مثبت تقليدي.</p>
+
+    <hr>
+
+    <h2 id="tech">🏗️ التقنية المستخدمة</h2>
+
+    <p>الإصدار الثاني مبني باستخدام:</p>
+    <div class="code-block">
+      <pre><code>Tauri 2
+Rust
+HTML
+CSS
+JavaScript</code></pre>
+    </div>
+    <p>واجهة التطبيق مبنية باستخدام JavaScript أصلي <strong>Vanilla JavaScript</strong> بدون الاعتماد على React أو Vue أو أي إطار JavaScript ثقيل.</p>
+    <p>تم تصميم التطبيق ليكون خفيفًا ويعمل محليًا قدر الإمكان.</p>
+
+    <hr>
+
+    <h2 id="requirements">💻 المتطلبات</h2>
+
+    <p>لا يحتاج التطبيق إلى تثبيت تقليدي.</p>
+    <p>حمّل الملف الخاص بنظام التشغيل ثم شغّله مباشرة.</p>
+    <p>لا يحتاج التطبيق إلى اتصال بالإنترنت بعد تحميله.</p>
+
+    <hr>
+
+    <h2 id="privacy">🔒 الخصوصية</h2>
+
+    <p>تتم عمليات القراءة والبحث وإدارة المحفوظات محليًا داخل التطبيق.</p>
+    <p>ملفات القرآن والتفاسير موجودة ضمن التطبيق نفسه.</p>
+
+    <hr>
+
+    <h2 id="contact">📩 التواصل</h2>
+
+    <p>لأي ملاحظات أو اقتراحات أو للإبلاغ عن مشكلة:</p>
+    <p>📧 <strong><a href="mailto:TafasirAlshia@proton.me" dir="ltr">TafasirAlshia@proton.me</a></strong></p>
+
+    <hr>
+
+    <p>© 2026 islam-reference – جميع الحقوق محفوظة.</p>
+
+  </main>
+
+  <script>
+    (function () {
+      if (!navigator.clipboard) return;
+
+      var copyIcon = '<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="5.75" y="5.75" width="8.5" height="8.5" rx="1.5"/><path d="M10.25 5.75v-2.5a1.5 1.5 0 0 0-1.5-1.5h-5a1.5 1.5 0 0 0-1.5 1.5v5a1.5 1.5 0 0 0 1.5 1.5h2.5"/></svg>';
+      var checkIcon = '<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.25 3.25L13 5"/></svg>';
+
+      document.querySelectorAll('.code-block').forEach(function (block) {
+        var code = block.querySelector('code');
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'copy-btn';
+        btn.title = 'نسخ';
+        btn.setAttribute('aria-label', 'نسخ');
+        btn.innerHTML = copyIcon;
+
+        btn.addEventListener('click', function () {
+          navigator.clipboard.writeText(code.textContent).then(function () {
+            btn.innerHTML = checkIcon;
+            btn.classList.add('copied');
+            setTimeout(function () {
+              btn.innerHTML = copyIcon;
+              btn.classList.remove('copied');
+            }, 2000);
+          });
+        });
+
+        block.appendChild(btn);
+      });
+    })();
+  </script>
+</body>
+</html>
