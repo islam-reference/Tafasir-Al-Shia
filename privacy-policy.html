@@ -1,67 +1,227 @@
-# Privacy Policy — Tafasir Al-Shia
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Tafasir Al-Shia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f5f1;
+      --surface: #ffffff;
+      --text: #2b2b2b;
+      --muted: #6b6b6b;
+      --heading: #1a1a1a;
+      --accent: #1f5f4a;
+      --accent-soft: #e8f1ed;
+      --border: #e4e2dc;
+    }
 
-**Effective date: 30 September 2026**
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121413;
+        --surface: #1a1d1c;
+        --text: #d9dcda;
+        --muted: #9aa19e;
+        --heading: #f2f4f3;
+        --accent: #6fbf9f;
+        --accent-soft: #1f2b27;
+        --border: #2a2f2d;
+      }
+    }
 
-This Privacy Policy applies to the **تفاسير الشيعة (Tafasir Al-Shia)** application.
+    * { box-sizing: border-box; }
 
-## Information Collection
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
 
-Tafasir Al-Shia does not collect, transmit, store on external servers, sell, or share personal or sensitive user data.
+    .container {
+      max-width: 760px;
+      margin: 48px auto;
+      padding: 48px 56px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
 
-The application does not require users to create an account or provide personal information.
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
 
-## Internet and Network Access
+    h1 {
+      margin: 0 0 8px;
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--heading);
+      letter-spacing: -0.02em;
+    }
 
-The application is designed to operate locally on the user's device. The current version does not request Android Internet permission and does not transmit user information over the Internet.
+    .effective-date {
+      display: inline-block;
+      margin: 8px 0 0;
+      padding: 4px 12px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-radius: 999px;
+    }
 
-## Analytics and Tracking
+    .intro {
+      margin: 20px 0 0;
+      color: var(--text);
+    }
 
-Tafasir Al-Shia does not use advertising SDKs, analytics services, tracking technologies, or behavioural profiling.
+    h2 {
+      margin: 40px 0 10px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--heading);
+      padding-left: 12px;
+      border-left: 3px solid var(--accent);
+      line-height: 1.4;
+    }
 
-The application does not track users across applications or websites.
+    p { margin: 0 0 14px; }
 
-## Advertising
+    strong { font-weight: 600; color: var(--heading); }
 
-Tafasir Al-Shia does not display advertisements and does not share information with advertising companies.
+    .arabic {
+      font-family: "Noto Naskh Arabic", "Amiri", "Traditional Arabic", serif;
+      font-weight: 700;
+      font-size: 1.1em;
+    }
 
-## Local Application Data
+    .contact {
+      margin-top: 12px;
+      padding: 18px 20px;
+      background: var(--accent-soft);
+      border-radius: 10px;
+    }
 
-Certain application preferences or settings may be stored locally on the user's device where necessary for application functionality.
+    .contact p:last-child { margin-bottom: 0; }
 
-This locally stored information is not transmitted to the developer or to third parties.
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+    }
 
-Users can remove locally stored application data by clearing the application's data through Android settings or by uninstalling the application.
+    a:hover { opacity: 0.8; }
 
-## Data Sharing
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+    }
 
-Tafasir Al-Shia does not share personal or sensitive user data with third parties because the application does not collect such data.
+    @media (max-width: 640px) {
+      body { font-size: 16px; }
+      .container {
+        margin: 0;
+        padding: 32px 20px;
+        border: none;
+        border-radius: 0;
+      }
+      h1 { font-size: 1.6rem; }
+    }
 
-## Data Retention and Deletion
+    @media print {
+      body { background: #fff; color: #000; }
+      .container { border: none; margin: 0; padding: 0; max-width: none; }
+      .effective-date, .contact { background: none; padding-left: 0; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Privacy Policy — Tafasir Al-Shia</h1>
+      <span class="effective-date">Effective date: 30 September 2026</span>
+      <p class="intro">
+        This Privacy Policy applies to the
+        <strong><span class="arabic" lang="ar" dir="rtl">تفاسير الشيعة</span> (Tafasir Al-Shia)</strong>
+        application.
+      </p>
+    </header>
 
-The developer does not retain personal or sensitive user information on external servers.
+    <section>
+      <h2>Information Collection</h2>
+      <p>Tafasir Al-Shia does not collect, transmit, store on external servers, sell, or share personal or sensitive user data. The application does not require users to create an account or provide personal information.</p>
+    </section>
 
-Any application data stored locally on the user's device remains under the user's control and can be deleted by clearing the application's storage or uninstalling the application.
+    <section>
+      <h2>Internet and Network Access</h2>
+      <p>The application is designed to operate locally on the user's device. The current version does not request Android Internet permission and does not transmit user information over the Internet.</p>
+    </section>
 
-## Security
+    <section>
+      <h2>Analytics and Tracking</h2>
+      <p>Tafasir Al-Shia does not use advertising SDKs, analytics services, tracking technologies, or behavioural profiling. The application does not track users across applications or websites.</p>
+    </section>
 
-Because Tafasir Al-Shia does not collect or transmit personal or sensitive user data, such information is not transferred to or stored on developer-controlled servers.
+    <section>
+      <h2>Advertising</h2>
+      <p>Tafasir Al-Shia does not display advertisements and does not share information with advertising companies.</p>
+    </section>
 
-The application is designed to minimise permissions and access only the capabilities required for its functionality.
+    <section>
+      <h2>Local Application Data</h2>
+      <p>Certain application preferences or settings may be stored locally on the user's device where necessary for application functionality. This locally stored information is not transmitted to the developer or to third parties.</p>
+      <p>Users can remove locally stored application data by clearing the application's data through Android settings or by uninstalling the application.</p>
+    </section>
 
-## Children's Privacy
+    <section>
+      <h2>Data Sharing</h2>
+      <p>Tafasir Al-Shia does not share personal or sensitive user data with third parties because the application does not collect such data.</p>
+    </section>
 
-Tafasir Al-Shia does not knowingly collect personal information from children or adults.
+    <section>
+      <h2>Data Retention and Deletion</h2>
+      <p>The developer does not retain personal or sensitive user information on external servers. Any application data stored locally on the user's device remains under the user's control and can be deleted by clearing the application's storage or uninstalling the application.</p>
+    </section>
 
-No account registration or submission of personal information is required to use the application.
+    <section>
+      <h2>Security</h2>
+      <p>Because Tafasir Al-Shia does not collect or transmit personal or sensitive user data, such information is not transferred to or stored on developer-controlled servers. The application is designed to minimise permissions and access only the capabilities required for its functionality.</p>
+    </section>
 
-## Changes to This Privacy Policy
+    <section>
+      <h2>Children's Privacy</h2>
+      <p>Tafasir Al-Shia does not knowingly collect personal information from children or adults. No account registration or submission of personal information is required to use the application.</p>
+    </section>
 
-This Privacy Policy may be updated if the application's features or data-handling practices change.
+    <section>
+      <h2>Changes to This Privacy Policy</h2>
+      <p>This Privacy Policy may be updated if the application's features or data-handling practices change. Any updated version will be published on this page with a revised effective date.</p>
+    </section>
 
-Any updated version will be published on this page with a revised effective date.
+    <section>
+      <h2>Contact</h2>
+      <p>For questions or concerns regarding this Privacy Policy or the privacy practices of Tafasir Al-Shia, contact:</p>
+      <div class="contact">
+        <p><strong>Email:</strong> <a href="mailto:TafasirAlshia@proton.me">TafasirAlshia@proton.me</a></p>
+      </div>
+    </section>
 
-## Contact
-
-For questions or concerns regarding this Privacy Policy or the privacy practices of Tafasir Al-Shia, contact:
-
-**Email:** TafasirAlshia@proton.me
+    <footer>
+      &copy; 2026 Tafasir Al-Shia
+    </footer>
+  </main>
+</body>
+</html>
