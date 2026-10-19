@@ -3,8 +3,15 @@
   <img src="banner.png" alt="تطبيق تفاسير الشيعة"> 
 </p>
 
+<p align="center">
+  <a href="https://play.google.com/store/apps/details?id=com.quranshia.tafasir&hl=ar">
+    <img src="ar__googleplay_get.svg" alt="احصل عليه من Google Play" width="220">
+  </a>
+</p>
+
 <h1 dir="rtl" style="color:#f39c12; font-size:2.5em;"> 🌟📘 تطبيق تفاسير الشيعة 🌟</h1>
-# 🕌 تفاسير الشيعة — Tafasir Al Shia
+
+## 🕌 تفاسير الشيعة — Tafasir Al Shia
 
 تطبيق **"تفاسير الشيعة"** هو تطبيق شامل لعرض مجموعة من تفاسير القرآن الكريم المعتمدة على روايات **أهل البيت عليهم السلام**، مع إمكانية استعراض أكثر من تفسير للآية الواحدة ومقارنتها بسهولة.
 
@@ -14,7 +21,7 @@
 
 ---
 
-## 🚀 الإصدار 2
+## 🚀 الإصدار الثاني
 
 أُعيد تصميم التطبيق وبنيته الداخلية بشكل كبير في الإصدار الثاني، ومن أبرز التحسينات:
 
@@ -32,56 +39,96 @@
 
 ---
 
-## ⬇️ التحميل (Download)
+<div dir="rtl" align="right">
 
-لتحميل أحدث إصدار:
+<h2>⬇️ التحميل (Download)</h2>
 
-1. اذهب إلى قسم **[Releases](../../releases)** في هذا المستودع.
-2. اختر أحدث إصدار.
-3. حمّل الملف المناسب لنظام التشغيل لديك:
+<p>لتحميل أحدث إصدار:</p>
 
-| النظام | الملف |
-|---|---|
-| 🪟 Windows | `Tafasir-Al-Shia-Windows.exe` |
-| 🍎 macOS | `Tafasir-Al-Shia-macOS-Universal.zip` |
-| 🐧 Linux | `Tafasir-Al-Shia-Linux.AppImage` |
+<ol dir="rtl">
+  <li>
+    اذهب إلى قسم
+    <a href="https://github.com/islam-reference/Tafasir-Al-Shia/releases"><strong>Releases</strong></a>
+    في هذا المستودع.
+  </li>
+  <li>اختر أحدث إصدار.</li>
+  <li>حمّل الملف المناسب لنظام التشغيل لديك:</li>
+</ol>
 
-### Windows
+<table dir="rtl">
+  <thead>
+    <tr>
+      <th align="right">النظام</th>
+      <th align="right">الملف</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="right">🪟 Windows</td>
+      <td align="right"><code dir="ltr">Tafasir-Al-Shia-Windows.exe</code></td>
+    </tr>
+    <tr>
+      <td align="right">🍎 macOS</td>
+      <td align="right"><code dir="ltr">Tafasir-Al-Shia-macOS-Universal.zip</code></td>
+    </tr>
+    <tr>
+      <td align="right">🐧 Linux</td>
+      <td align="right"><code dir="ltr">Tafasir-Al-Shia-Linux.AppImage</code></td>
+    </tr>
+  </tbody>
+</table>
 
-حمّل:
+<h3>Windows</h3>
 
-`Tafasir-Al-Shia-Windows.exe`
+<p>حمّل:</p>
 
-ثم شغّله مباشرة.
+<div dir="ltr" align="left">
+<pre><code>Tafasir-Al-Shia-Windows.exe</code></pre>
+</div>
 
-**لا يحتاج إلى تثبيت.**
+<p>ثم شغّله مباشرة.</p>
 
-### macOS
+<p><strong>لا يحتاج إلى تثبيت.</strong></p>
 
-حمّل:
+<h3>macOS</h3>
 
-`Tafasir-Al-Shia-macOS-Universal.zip`
+<p>حمّل:</p>
 
-ثم فك الضغط وشغّل تطبيق `.app`.
+<div dir="ltr" align="left">
+<pre><code>Tafasir-Al-Shia-macOS-Universal.zip</code></pre>
+</div>
 
-نسخة macOS هي **Universal** وتدعم:
+<p>
+  ثم فك الضغط وشغّل تطبيق
+  <code dir="ltr">.app</code>.
+</p>
 
-- Apple Silicon
-- Intel Macs
+<p>نسخة macOS هي <strong>Universal</strong> وتدعم:</p>
 
-### Linux
+<ul dir="rtl">
+  <li><span dir="ltr">Apple Silicon</span></li>
+  <li><span dir="ltr">Intel Macs</span></li>
+</ul>
 
-حمّل:
+<h3>Linux</h3>
 
-`Tafasir-Al-Shia-Linux.AppImage`
+<p>حمّل:</p>
 
-ثم امنحه صلاحية التشغيل إذا لزم الأمر:
+<div dir="ltr" align="left">
+<pre><code>Tafasir-Al-Shia-Linux.AppImage</code></pre>
+</div>
 
-```bash
-chmod +x Tafasir-Al-Shia-Linux.AppImage
-```
+<p>ثم امنحه صلاحية التشغيل إذا لزم الأمر:</p>
 
-ثم شغّله مباشرة.
+<div dir="ltr" align="left">
+<pre><code>chmod +x Tafasir-Al-Shia-Linux.AppImage</code></pre>
+</div>
+
+<p>ثم شغّله مباشرة.</p>
+
+</div>
+
+
 
 ---
 
@@ -152,50 +199,65 @@ chmod +x Tafasir-Al-Shia-Linux.AppImage
 - ميل الخط
 - تباعد الحروف
 - تباعد الكلمات
+<div dir="rtl" align="right">
 
-### ⬆️ العودة السريعة إلى أعلى الصفحة
+<h3>⬆️ العودة السريعة إلى أعلى الصفحة</h3>
 
-زر مخصص للعودة إلى بداية الصفحة عند قراءة التفاسير الطويلة.
+<p>زر مخصص للعودة إلى بداية الصفحة عند قراءة التفاسير الطويلة.</p>
 
-### ⚡ تحميل أخف وأسرع
+<h3>⚡ تحميل أخف وأسرع</h3>
 
-### 🌐 يعمل بدون إنترنت
+<h3>🌐 يعمل بدون إنترنت</h3>
 
-بيانات القرآن والتفاسير مضمنة مع التطبيق، لذلك يمكن استخدامه بدون اتصال بالإنترنت.
+<p>بيانات القرآن والتفاسير مضمنة مع التطبيق، لذلك يمكن استخدامه بدون اتصال بالإنترنت.</p>
 
-### 💻 متعدد المنصات
+<h3>💻 متعدد المنصات</h3>
 
-يدعم الإصدار 2:
+<p>يدعم الإصدار 2:</p>
 
-- Windows
-- macOS
-- Linux
+<ul dir="rtl">
+  <li><span dir="ltr">Windows</span></li>
+  <li><span dir="ltr">macOS</span></li>
+  <li><span dir="ltr">Linux</span></li>
+</ul>
 
-كما تم بناء التطبيق باستخدام **Tauri 2** لتسهيل دعم منصات إضافية مستقبلًا.
+<p>
+كما تم بناء التطبيق باستخدام
+<strong><span dir="ltr">Tauri 2</span></strong>
+لتسهيل دعم منصات إضافية مستقبلًا.
+</p>
 
-### 📦 تشغيل مباشر
+<h3>📦 تشغيل مباشر</h3>
 
-نسخ سطح المكتب مصممة بحيث يمكن تشغيلها مباشرة دون الحاجة إلى مثبت تقليدي.
+<p>نسخ سطح المكتب مصممة بحيث يمكن تشغيلها مباشرة دون الحاجة إلى مثبت تقليدي.</p>
 
-</div>
+<hr>
 
----
+<h2>🏗️ التقنية المستخدمة</h2>
 
-## 🏗️ التقنية المستخدمة
+<p>الإصدار الثاني مبني باستخدام:</p>
 
-الإصدار الثاني مبني باستخدام:
-
-```text
-Tauri 2
+<div dir="ltr" align="left">
+<pre><code>Tauri 2
 Rust
 HTML
 CSS
-JavaScript
-```
+JavaScript</code></pre>
+</div>
 
-واجهة التطبيق مبنية باستخدام JavaScript أصلي **Vanilla JavaScript** بدون الاعتماد على React أو Vue أو أي إطار JavaScript ثقيل.
+<p>
+واجهة التطبيق مبنية باستخدام JavaScript أصلي
+<strong><span dir="ltr">Vanilla JavaScript</span></strong>
+بدون الاعتماد على
+<span dir="ltr">React</span>
+أو
+<span dir="ltr">Vue</span>
+أو أي إطار JavaScript ثقيل.
+</p>
 
-تم تصميم التطبيق ليكون خفيفًا ويعمل محليًا قدر الإمكان.
+<p>تم تصميم التطبيق ليكون خفيفًا ويعمل محليًا قدر الإمكان.</p>
+
+</div>
 
 ---
 
